@@ -7,6 +7,4 @@
 
 Fork 本仓库，在 Action 界面内选择 “修补 boot.img”，然后点击 “Run workflow”
 
-**想一键提取boot可以使用这个工具** [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
-
 **喜欢的话点点star**
