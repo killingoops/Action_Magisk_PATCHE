@@ -12,10 +12,8 @@ jobs:
   BootIMGExtractAction:
     runs-on: ubuntu-latest
     steps:
-      - name: 检出代码
-        uses: actions/checkout@v2
 
-      - name: 安装依赖
+      - name: 安装aria2c
         run: |
           sudo apt-get update
           sudo apt install aria2 -y
@@ -28,6 +26,7 @@ jobs:
           git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
           cd Magisk
           aria2c -s 10 -x 10 -d . -o boot.img "${{ github.event.inputs.boot_url }}"
+          mkdir done
           ./boot.sh
           cd ${{ github.workspace }}
           touch info.md
