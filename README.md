@@ -1,7 +1,7 @@
 # Action_Magisk_PATCHE
 
 
-这是一个用来修补booy 的 Github Action 项目
+这是一个用来修补boot 的 Github Action 项目
 
 ## Usage
 
