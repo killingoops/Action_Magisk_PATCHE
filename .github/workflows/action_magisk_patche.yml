@@ -20,7 +20,7 @@ jobs:
           BUILD_TIME=$(TZ=Asia/Shanghai date +"%m%d%H%M")
           echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
 
-      - name: 提取镜像
+      - name: 下载boot
         run: |
           cd ~
           git clone https://github.com/jax0ncai/Magisk_patche.git Magisk -b 26.1
