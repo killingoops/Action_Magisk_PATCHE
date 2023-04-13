@@ -37,5 +37,5 @@ jobs:
         with:
             artifacts: "~/Magisk/done/*"
             bodyfile: "${{ github.workspace }}/info.md"
-            tag: "OUTPUT_${{ env.BUILD_TIME }}"
+            tag: "Magisk_${{ env.BUILD_TIME }}"
             token: ${{ secrets.GITHUB_TOKEN }}
