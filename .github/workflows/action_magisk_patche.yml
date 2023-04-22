@@ -1,4 +1,4 @@
-name: 修补boot
+name: 直接修补boot
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
         default: ''
 
 jobs:
-  Boot_PATCHE:
+  修补:
     runs-on: ubuntu-latest
     steps:
 
