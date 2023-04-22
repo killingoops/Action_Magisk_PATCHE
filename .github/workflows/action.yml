@@ -1,4 +1,4 @@
-name: 提取 boot.img / init_boot.img
+name: 一键提取boot并修补
 
 on:
   workflow_dispatch:
