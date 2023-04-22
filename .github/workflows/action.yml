@@ -34,6 +34,7 @@ jobs:
           ./extractor.sh firmware.zip
           
       - name: 修补boot
+        run: |
           cd ~
           git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
           cd Magisk
@@ -41,7 +42,8 @@ jobs:
           mkdir done
           ./boot.sh
 
-      - name: 提交信息      
+      - name: 提交信息  
+        run: |    
           cd ${{ github.workspace }}
           touch info.md
           echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
