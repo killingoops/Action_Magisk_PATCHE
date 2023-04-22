@@ -49,10 +49,12 @@ jobs:
           echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
           echo "ROM 下载直链：${{ github.event.inputs.rom_url }}" >> info.md
 
-      - name: 上传镜像
-        uses: ncipollo/release-action@v1.12.0
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v1
         with:
-            artifacts: "~/Magisk/done/*"
-            bodyfile: "${{ github.workspace }}/info.md"
-            tag: "Magisk_${{ env.BUILD_TIME }}"
-            token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            ~/Magisk/done/*
+          name: Magisk_boot-${{ env.BUILD_TIME }}
+          tag_name: ${{ env.BUILD_TIME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
