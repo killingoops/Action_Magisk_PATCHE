@@ -42,16 +42,11 @@ jobs:
           mkdir done
           ./boot.sh
 
-      - name: Zip folder
-        run: zip -r boot.zip ~/Magisk/done/
-
-
-      - name: Upload to Release
-        uses: softprops/action-gh-release@v1
+      - name: 上传到 Release
+        uses: actions/upload-release-asset@v1
         with:
-          files: |
-            ./boot.zip
-          name: Magisk_boot-${{ env.BUILD_TIME }}
-          tag_name: ${{ env.BUILD_TIME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          url: ${{ env.RELEASE_URL }}
+          asset_path: ~/Magisk/done/boot.img
+          asset_name: boot-${{ env.BUILD_TIME }}.img
+          asset_content_type: application/octet-stream
+          token: ${{ secrets.GITHUB_TOKEN }}
