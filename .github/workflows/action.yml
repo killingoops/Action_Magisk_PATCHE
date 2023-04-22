@@ -42,18 +42,15 @@ jobs:
           mkdir done
           ./boot.sh
 
-      - name: 提交信息  
-        run: |    
-          cd ${{ github.workspace }}
-          touch info.md
-          echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
-          echo "ROM 下载直链：${{ github.event.inputs.rom_url }}" >> info.md
+      - name: Zip folder
+        run: zip -r boot.zip ~/Magisk/done/
+
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./Magisk/done/boot.img
+            ./boot.zip
           name: Magisk_boot-${{ env.BUILD_TIME }}
           tag_name: ${{ env.BUILD_TIME }}
         env:
