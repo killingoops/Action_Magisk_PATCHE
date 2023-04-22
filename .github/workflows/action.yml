@@ -1,0 +1,50 @@
+name: test
+
+on:
+  workflow_dispatch:
+    inputs:
+      boot_url:
+        description: 'ROM 下载直链'
+        required: true
+        default: ''
+
+jobs:
+  Boot_PATCHE:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 安装依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install python3-pip
+          sudo apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename aria2
+          sudo apt install liblzma-dev brotli lz4
+          pip3 install backports.lzma protobuf pycrypto
+          pip install protobuf==3.20
+          BUILD_TIME=$(TZ=Asia/Shanghai date +"%m%d%H%M")
+          echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
+
+      - name: 提取镜像
+        run: |
+          cd ~
+          git clone --recurse-submodules https://github.com/tosasitill/Firmware_extractor.git
+          cd Firmware_extractor
+          aria2c -s 10 -x 10 -d . -o firmware.zip "${{ github.event.inputs.rom_url }}"
+          ./extractor.sh firmware.zip
+          cd ~/Firmware_extractor/out/*
+          git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
+          mv ~/Firmware_extractor/out/* ~/Firmware_extractor/Magisk/
+          mkdir done
+          ./boot.sh
+          cd ${{ github.workspace }}
+          touch info.md
+          echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
+          echo "ROM 下载直链：${{ github.event.inputs.rom_url }}" >> info.md
+
+      - name: 上传镜像
+        uses: ncipollo/release-action@v1.12.0
+        with:
+            artifacts: "~/Firmware_extractor/Magisk/done/*"
+            bodyfile: "${{ github.workspace }}/info.md"
+            tag: "OUTPUT_${{ env.BUILD_TIME }}"
+            token: ${{ secrets.GITHUB_TOKEN }}
