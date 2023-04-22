@@ -9,7 +9,7 @@ on:
         default: ''
 
 jobs:
-  修补:
+  magisk_upack:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
