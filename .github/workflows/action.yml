@@ -41,12 +41,13 @@ jobs:
           mv ~/Firmware_extractor/out/* ./
           mkdir done
           ./boot.sh
+          echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
+          echo "下载直链：${{ github.event.inputs.boot_url }}" >> info.md
 
-      - name: 上传到 Release
-        uses: actions/upload-release-asset@v1
+      - name: 上传镜像
+        uses: ncipollo/release-action@v1.12.0
         with:
-          url: ${{ env.RELEASE_URL }}
-          asset_path: ~/Magisk/done/boot.img
-          asset_name: boot-${{ env.BUILD_TIME }}.img
-          asset_content_type: application/octet-stream
-          token: ${{ secrets.GITHUB_TOKEN }}
+            artifacts: "~/Magisk/done/*"
+            bodyfile: "${{ github.workspace }}/info.md"
+            tag: "Magisk_${{ env.BUILD_TIME }}_${{ github.run_id }}"
+            token: ${{ secrets.GITHUB_TOKEN }}
