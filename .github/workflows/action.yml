@@ -53,7 +53,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ~/Magisk/done/*
+            ./Magisk/done/boot.img
           name: Magisk_boot-${{ env.BUILD_TIME }}
           tag_name: ${{ env.BUILD_TIME }}
         env:
