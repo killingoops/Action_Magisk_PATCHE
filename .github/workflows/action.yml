@@ -1,17 +1,19 @@
-name: test
+name: 提取 boot.img / init_boot.img
 
 on:
   workflow_dispatch:
     inputs:
-      boot_url:
+      rom_url:
         description: 'ROM 下载直链'
         required: true
-        default: ''
+        default: 'https://mirrorbits.lineageos.org/full/tissot/20230328/lineage-19.1-20230328-nightly-tissot-signed.zip'
 
 jobs:
-  Boot_PATCHE:
+  BootIMGExtractAction:
     runs-on: ubuntu-latest
     steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
 
       - name: 安装依赖
         run: |
@@ -23,7 +25,6 @@ jobs:
           pip install protobuf==3.20
           BUILD_TIME=$(TZ=Asia/Shanghai date +"%m%d%H%M")
           echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
-
       - name: 提取镜像
         run: |
           cd ~
@@ -31,20 +32,14 @@ jobs:
           cd Firmware_extractor
           aria2c -s 10 -x 10 -d . -o firmware.zip "${{ github.event.inputs.rom_url }}"
           ./extractor.sh firmware.zip
-          cd ~/Firmware_extractor/out/*
-          git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
-          mv ~/Firmware_extractor/out/* ~/Firmware_extractor/Magisk/
-          mkdir done
-          ./boot.sh
           cd ${{ github.workspace }}
           touch info.md
           echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
           echo "ROM 下载直链：${{ github.event.inputs.rom_url }}" >> info.md
-
       - name: 上传镜像
         uses: ncipollo/release-action@v1.12.0
         with:
-            artifacts: "~/Firmware_extractor/Magisk/done/*"
+            artifacts: "~/Firmware_extractor/out/*"
             bodyfile: "${{ github.workspace }}/info.md"
             tag: "OUTPUT_${{ env.BUILD_TIME }}"
             token: ${{ secrets.GITHUB_TOKEN }}
