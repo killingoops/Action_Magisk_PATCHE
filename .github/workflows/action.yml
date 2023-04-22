@@ -32,14 +32,25 @@ jobs:
           cd Firmware_extractor
           aria2c -s 10 -x 10 -d . -o firmware.zip "${{ github.event.inputs.rom_url }}"
           ./extractor.sh firmware.zip
+          
+      - name: 修补boot
+          cd ~
+          git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
+          cd Magisk
+          mv ~/Firmware_extractor/out/* ./
+          mkdir done
+          ./boot.sh
+
+      - name: 提交信息      
           cd ${{ github.workspace }}
           touch info.md
           echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
           echo "ROM 下载直链：${{ github.event.inputs.rom_url }}" >> info.md
+
       - name: 上传镜像
         uses: ncipollo/release-action@v1.12.0
         with:
-            artifacts: "~/Firmware_extractor/out/*"
+            artifacts: "~/Magisk/done/*"
             bodyfile: "${{ github.workspace }}/info.md"
-            tag: "OUTPUT_${{ env.BUILD_TIME }}"
+            tag: "Magisk_${{ env.BUILD_TIME }}"
             token: ${{ secrets.GITHUB_TOKEN }}
