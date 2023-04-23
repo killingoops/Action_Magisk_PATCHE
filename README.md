@@ -11,7 +11,7 @@ Fork 本仓库，在 Action 界面内选择 “直接修补boot 或者是 从ROM
 ## Others
 依赖于 [payload-dumper-go](https://github.com/ssut/payload-dumper-go)
 
-依赖过 [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractor)参与
+依赖过 [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractor)
 
 感谢 [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
 
@@ -32,7 +32,7 @@ Fork this warehouse, select "Directly patch boot or extract boot from ROM and pa
 ## Others
 Depends on [payload-dumper-go](https://github.com/ssut/payload-dumper-go)
 
-Rely on [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractor) to participate
+Rely on [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractor)
 
 Thanks to [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
 
