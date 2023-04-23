@@ -16,6 +16,7 @@ Fork 本仓库，在 Action 界面内选择 “直接修补boot 或者是 从ROM
 感谢 [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
 
 感谢 [natsumerinchan](https://github.com/natsumerinchan)和[httpsColon](https://github.com/httpsColon)提供payload-dumper-go解包boot
+
 感谢 [Tonyha7](https://github.com/Tonyha7)提供解决403的办法
 
 # Action_Magisk_PATCHE
@@ -36,4 +37,5 @@ Rely on [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extracto
 Thanks to [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
 
 Thanks to [natsumerinchan](https://github.com/natsumerinchan) and [httpsColon](https://github.com/httpsColon) for providing payload-dumper-go unpacking boot
+
 Thanks to [Tonyha7](https://github.com/Tonyha7) for providing a solution to 403
