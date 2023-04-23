@@ -20,27 +20,23 @@ jobs:
       - name: 安装依赖
         run: |
           sudo apt-get update
-          sudo apt-get -y install python3-pip
-          sudo apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename aria2
-          sudo apt install liblzma-dev brotli lz4
-          pip3 install backports.lzma protobuf pycrypto
-          pip install protobuf==3.20
+          sudo apt-get -y aria2 unzip
           BUILD_TIME=$(TZ=Asia/Shanghai date +"%m%d%H%M")
           echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
       - name: 提取镜像
         run: |
-          cd ~
-          git clone --recurse-submodules https://github.com/tosasitill/Firmware_extractor.git
-          cd Firmware_extractor
+          cd ${{ github.workspace }}
           aria2c -s 10 -x 10 -d . -o firmware.zip "${{ github.event.inputs.rom_url }}"
-          ./extractor.sh firmware.zip
+          unzip firmware.zip
+          chmod +x ./payload-dumper-go
+          ./payload-dumper-go -p boot firmware.zip
           
       - name: 修补boot
         run: |
           cd ~
           git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
           cd Magisk
-          mv ~/Firmware_extractor/out/* ./
+          mv ${{ github.workspace }}/out/* ./
           mkdir done
           ./boot.sh
       - name: 提交信息
