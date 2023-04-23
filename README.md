@@ -13,4 +13,5 @@ Fork 本仓库，在 Action 界面内选择 “直接修补boot 或者是 从ROM
 ## Others
 
 依赖于 [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractora)
+
 感谢 [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
