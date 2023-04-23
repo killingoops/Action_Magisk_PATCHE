@@ -1,5 +1,24 @@
 # Action_Magisk_PATCHE
 
+This is a Github Action project to patch boot.img / init_boot.img
+
+## Usage
+
+Fork this warehouse, select "Directly patch boot or extract boot from ROM and patch" in the Action interface, then click "Run workflow", fill in the ROM/boot download direct link, and wait for completion.
+
+**If you encounter "403 Resource Access Restricted", please go to Settings-Actions-General-Workflow permissions and adjust it to "Read and write permissions"**
+
+**Extract boot from ROM and patch only support flashing package**
+
+## Others
+
+Depends on [Firmware_extractor](https://github.com/ShivamKumarJha/Firmware_extractor)
+
+Thanks to [BootIMGExtractAction](https://github.com/tosasitill/BootIMGExtractAction)
+
+
+# Action_Magisk_PATCHE
+
 这是一个用来修补 boot.img / init_boot.img 的 Github Action 项目
 
 ## Usage
