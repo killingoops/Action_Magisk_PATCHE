@@ -29,7 +29,7 @@ jobs:
           aria2c -s 10 -x 10 -d . -o firmware.zip "${{ github.event.inputs.rom_url }}"
           unzip firmware.zip
           chmod +x ./payload-dumper-go
-          ./payload-dumper-go -p boot firmware.zip
+          ./payload-dumper-go -p boot payload.bin
           
       - name: 修补boot
         run: |
