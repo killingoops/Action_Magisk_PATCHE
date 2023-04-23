@@ -20,7 +20,7 @@ jobs:
       - name: 安装依赖
         run: |
           sudo apt-get update
-          sudo apt-get -y aria2 unzip
+          sudo apt-get -y install aria2 unzip
           BUILD_TIME=$(TZ=Asia/Shanghai date +"%m%d%H%M")
           echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
       - name: 提取镜像
