@@ -1,12 +1,15 @@
 name: 从ROM提取boot并修补
 
 on:
+  schedule:
+    - cron: '0 13,22 * * *' # 北京时间晚上9点和早上6点触发
+
   workflow_dispatch:
     inputs:
       rom_url:
         description: 'ROM 下载直链'
         required: true
-        default: ''
+        default: 'https://bigota.d.miui.com/V14.0.5.0.TKPCNXM/miui_CHOPIN_V14.0.5.0.TKPCNXM_242d1a6ff5_13.0.zip'
 
 jobs:
   magisk_upack:
@@ -70,3 +73,4 @@ jobs:
           token: ${{ secrets.AUTH_PAT }}
           retain_days: 1
           keep_minimum_runs: 3
+          repository: ${{ github.repository }}
