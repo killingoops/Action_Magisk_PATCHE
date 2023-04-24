@@ -15,5 +15,5 @@ jobs:
       - name: ceshi
         run: |
           sudo apt-get install pip -y
-          pip3 install git+https://github.com/foyoux/aligo.git
+          pip install git+https://github.com/foyoux/aligo.git
           python3 aliyun.py
