@@ -62,3 +62,10 @@ jobs:
             bodyfile: "${{ github.workspace }}/info.md"
             tag: "Magisk_${{ env.BUILD_TIME }}_${{ github.run_id }}"
             token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 3
