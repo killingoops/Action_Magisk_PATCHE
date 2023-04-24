@@ -12,12 +12,17 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v2
 
+      - name: ck
+        run: |
+          python3 --version
+
       - name: ceshi
         run: |
           sudo apt-get update
           sudo apt-get install python3-pip python3 -y
 
       - name: az
+        run: |
           python3 -m venv $PWD/venv
           pip3 install git+https://github.com/foyoux/aligo.git
           python3 aliyun.py
