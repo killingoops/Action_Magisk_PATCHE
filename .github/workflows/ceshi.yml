@@ -20,9 +20,17 @@ jobs:
         run: |
           sudo apt-get update
 
+
+      - name: kk
+        run: |
+        mkdir $HOME/.aligo
+        touch $HOME/.aligo/aligo.json
+        echo "{"user_name": "135***415", "nick_name": "lrios-jaxon", "user_id": "2c619e3373e5493a88966ff7ec278286", "default_drive_id": "301658841", "default_sbox_drive_id": "401658841", "role": "user", "status": "enabled", "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyYzYxOWUzMzczZTU0OTNhODg5NjZmZjdlYzI3ODI4NiIsImN1c3RvbUpzb24iOiJ7XCJjbGllbnRJZFwiOlwicEpaSW5OSE4yZFpXazhxZ1wiLFwiZG9tYWluSWRcIjpcImJqMjlcIixcInNjb3BlXCI6W1wiRFJJVkUuQUxMXCIsXCJGSUxFLkFMTFwiLFwiVklFVy5BTExcIixcIlNIQVJFLkFMTFwiLFwiU1RPUkFHRS5BTExcIixcIlNUT1JBR0VGSUxFLkxJU1RcIixcIlVTRVIuQUxMXCIsXCJCQVRDSFwiLFwiQUNDT1VOVC5BTExcIixcIklNQUdFLkFMTFwiLFwiSU5WSVRFLkFMTFwiLFwiU1lOQ01BUFBJTkcuTElTVFwiXSxcInJvbGVcIjpcInVzZXJcIixcInJlZlwiOlwiXCIsXCJkZXZpY2VfaWRcIjpcIjNkYjQzNDAyMWE2NDQ5ZDdiZjA4MDc4NTQ0MTgzZmNiXCJ9IiwiZXhwIjoxNjgyMzE5ODYzLCJpYXQiOjE2ODIzMTI2MDN9.lwYjSYEWyHSW6WWfxl-MksWw01l_BmFUNnxrUnqA_kLtXuktF62u_LlnQWyrRT7imKZ28zKhLlWOMY-WHC0eRbYNxBSSmXO0UlBdEJLQ65xFWCYN254OmHBphGeCvpSnlXRcUIEDCSJdBKzoHa-Tvhllu8COfvb4ofE1MTDVclA", "refresh_token": "3db434021a6449d7bf08078544183fcb", "expires_in": 7200, "token_type": "Bearer", "avatar": "https://img.aliyundrive.com/avatar/default/03.png", "expire_time": "2023-04-24T07:04:23Z", "state": "", "exist_link": [], "need_link": false, "user_data": {"DingDingRobotUrl": "https://oapi.dingtalk.com/robot/send?access_token=0b4a936d0e98c08608cd99f693393c18fa905aa0868215485a28497501916fec", "EncourageDesc": "\u5185\u6d4b\u671f\u95f4\u6709\u6548\u53cd\u9988\u524d10\u540d\u7528\u6237\u5c06\u83b7\u5f97\u7ec8\u8eab\u514d\u8d39\u4f1a\u5458", "FeedBackSwitch": true, "FollowingDesc": "34848372", "ding_ding_robot_url": "https://oapi.dingtalk.com/robot/send?access_token=0b4a936d0e98c08608cd99f693393c18fa905aa0868215485a28497501916fec", "encourage_desc": "\u5185\u6d4b\u671f\u95f4\u6709\u6548\u53cd\u9988\u524d10\u540d\u7528\u6237\u5c06\u83b7\u5f97\u7ec8\u8eab\u514d\u8d39\u4f1a\u5458", "feed_back_switch": true, "following_desc": "34848372"}, "pin_setup": false, "is_first_login": false, "need_rp_verify": false, "device_id": "e43e3c407c75469eb00ae7ca8a1dacdf", "domain_id": "bj29", "hlogin_url": null, "x_device_id": "10c72ad4640c4fadab332e94c42c3f4b"}">>$HOME/.aligo/aligo.json
       - name: az
         run: |
           python3 -m venv $PWD/venv
           pip3 install -U aligo
           pip install -U aligo
           python3 aliyun.py
+
+
