@@ -14,4 +14,6 @@ jobs:
 
       - name: ceshi
         run: |
-          echo ${{ env._EMAIL_HOST }}
+          sudo apt-get install pip3 -y
+          pip3 install git+https://github.com/foyoux/aligo.git
+          python3 aliyun.py
