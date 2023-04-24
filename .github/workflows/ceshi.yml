@@ -16,5 +16,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install python3-pip python3 -y
+
+      - name: az
+          python3 -m venv $PWD/venv
           pip3 install git+https://github.com/foyoux/aligo.git
           python3 aliyun.py
