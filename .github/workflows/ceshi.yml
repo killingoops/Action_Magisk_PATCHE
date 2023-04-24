@@ -1,0 +1,17 @@
+name: ces
+
+on:
+  push
+
+jobs:
+  ces:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+
+      - name: ceshi
+        run: |
+          echo ${{ env._EMAIL_HOST }}
