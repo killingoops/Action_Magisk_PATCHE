@@ -15,6 +15,6 @@ jobs:
       - name: ceshi
         run: |
           sudo apt-get update
-          sudo apt-get install pip python3.10 -y
+          sudo apt-get install python3-pip python3 -y
           pip install git+https://github.com/foyoux/aligo.git
           python3 aliyun.py
