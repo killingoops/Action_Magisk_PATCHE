@@ -2,6 +2,8 @@
 
 **这是一个用来修补 boot.img / init_boot.img 的 Github Action 项目**
 
+##修补完可以在我的[网盘](https://pan.lrios.top)根据时间下载你修补的boot
+
 ## Usage
 
 Fork 本仓库，在 Action 界面内选择 “直接修补boot 或者是 从ROM提取boot并修补”，然后点击 “Run workflow”，填入 ROM/boot 下载直链，等待完成。
@@ -24,6 +26,8 @@ Fork 本仓库，在 Action 界面内选择 “直接修补boot 或者是 从ROM
 # Action_Magisk_PATCHE
 
 **This is a Github Action project to patch boot.img / init_boot.img**
+
+## After patching, you can download your patched boot from my [network disk] (https://pan.lrios.top) according to the time
 
 ## Usage
 
