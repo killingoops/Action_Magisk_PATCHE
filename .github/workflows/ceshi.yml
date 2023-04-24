@@ -19,10 +19,10 @@ jobs:
       - name: ceshi
         run: |
           sudo apt-get update
-          sudo apt-get install python3-pip python3 -y
 
       - name: az
         run: |
           python3 -m venv $PWD/venv
-          pip3 install git+https://github.com/foyoux/aligo.git
+          pip3 install -U aligo
+          pip install -U aligo
           python3 aliyun.py
