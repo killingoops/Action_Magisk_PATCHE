@@ -25,7 +25,7 @@ jobs:
       - name: 提取镜像
         run: |
           cd ~
-          git clone https://github.com/jax0ncai/Magisk_patche.git Magisk
+          git clone https://github.com/xyazzrany/Magisk_patche.git Magisk
           cd Magisk
           aria2c -s 10 -x 10 -d . -o boot.img "${{ github.event.inputs.boot_url }}"
           mkdir done
@@ -34,6 +34,17 @@ jobs:
           touch info.md
           echo "提交日期：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')" >> info.md
           echo "boot 下载直链：${{ github.event.inputs.boot_url }}" >> info.md
+
+
+      - name: 上传到阿里云盘
+        run: |
+          sudo apt-get update
+          python3 -m venv $PWD/venv
+          pip3 install -U aligo
+          pip install -U aligo
+          python3 aliyun.py
+
+          
       - name: 上传镜像
         uses: ncipollo/release-action@v1.12.0
         with:
