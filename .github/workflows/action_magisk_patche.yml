@@ -5,7 +5,7 @@ name: 直接修补boot
       boot_url:
         description: 'boot 下载直链'
         required: true
-        default: ''
+        default: 'd'
 
 jobs:
   magisk_upack:
