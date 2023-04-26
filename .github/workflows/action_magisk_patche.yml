@@ -1,9 +1,5 @@
 name: 直接修补boot
 
-on:
-  schedule:
-    - cron: '0 13,22 * * *' # 北京时间晚上9点和早上6点触发
-
   workflow_dispatch:
     inputs:
       boot_url:
