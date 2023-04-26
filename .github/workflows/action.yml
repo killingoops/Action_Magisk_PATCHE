@@ -1,5 +1,9 @@
 name: 从ROM提取boot并修补
 
+on:
+  watch:
+    types: [started]
+    
   workflow_dispatch:
     inputs:
       rom_url:
