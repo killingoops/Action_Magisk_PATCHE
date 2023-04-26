@@ -19,13 +19,11 @@ jobs:
           import requests
           # Define API endpoint and headers
           url = 'https://api.github.com/repos/xyazzrany/Action_Magisk_PATCHE/actions/runs'
-          headers = {'Authorization': 'Bearer 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'}
-
+          headers = {'Authorization': 'Bearer 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'}
           # Get list of workflow runs
           response = requests.get(url, headers=headers)
           response_json = response.json()
           runs = response_json['workflow_runs']
-
           # Loop through workflow runs and delete them
           for run in runs:
               # Define API endpoint for deleting workflow run
@@ -38,6 +36,7 @@ jobs:
 
       - name: use delete.py
         run: | 
+          pip3 install requests
           python3 delete.py
 
 
