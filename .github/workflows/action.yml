@@ -34,7 +34,7 @@ jobs:
       - name: 修补boot
         run: |
           cd ~
-          git clone -b delta https://github.com/xyazzrany/Magisk_patche.git Magisk
+          git clone https://github.com/xyazzrany/Magisk_patche.git Magisk
           cd Magisk
           mv ${{ github.workspace }}/out/* ./
           mkdir done
