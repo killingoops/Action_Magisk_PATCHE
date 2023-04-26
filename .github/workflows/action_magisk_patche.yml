@@ -1,5 +1,6 @@
 name: 直接修补boot
 
+on:
   workflow_dispatch:
     inputs:
       boot_url:

@@ -1,5 +1,6 @@
 name: 从ROM提取boot并修补
 
+on:
   workflow_dispatch:
     inputs:
       rom_url:
