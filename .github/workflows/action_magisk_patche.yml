@@ -27,7 +27,7 @@ jobs:
       - name: 提取镜像
         run: |
           cd ~
-          git clone -b delta https://github.com/xyazzrany/Magisk_patche.git Magisk
+          git clone https://github.com/xyazzrany/Magisk_patche.git Magisk
           cd Magisk
           aria2c -s 10 -x 10 -d . -o boot.img "${{ github.event.inputs.boot_url }}"
           mkdir done
