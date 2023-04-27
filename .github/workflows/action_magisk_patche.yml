@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       boot_url:
-        description: 'boot 下载直链'
+        description: 'https://bigota.d.miui.com/V14.0.8.0.TMACNXM/miui_ISHTAR_V14.0.8.0.TMACNXM_4621838527_13.0.zip'
         required: true
         default: 'd'
 
