@@ -6,7 +6,7 @@ on:
       rom_url:
         description: '卡刷包ROM 下载直链'
         required: true
-        default: 'https://bigota.d.miui.com/V14.0.5.0.TKPCNXM/miui_CHOPIN_V14.0.5.0.TKPCNXM_242d1a6ff5_13.0.zip'
+        default: 'https://bigota.d.miui.com/V14.0.8.0.TMACNXM/miui_ISHTAR_V14.0.8.0.TMACNXM_4621838527_13.0.zip'
 
 jobs:
   magisk_upack:
